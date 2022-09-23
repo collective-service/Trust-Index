@@ -1,8 +1,6 @@
 body {
     background: #fff;
     font-family:"Open Sans";
-    margin-left: auto;
-    margin-right: auto;
 
 }
 
@@ -30,20 +28,20 @@ h2 {
 
 .banner__container {
     background-size: cover;
-    min-height: 170px;
+    min-height: 100px;
     background-position: center;
     background-color: #FFF;
     background-blend-mode: luminosity,normal;
 }
 .banner__overlay {
-    min-height: 170px;
+    min-height: 100px;
     overflow: hidden;
     height: 100%;
     z-index: 2;
     background: #12284cba;
 }
 .banner__container .container {
-padding: 55px 0;
+padding: 25px 0;
 }
 
 .banner_title {
@@ -72,7 +70,7 @@ padding: 55px 0;
 
 /* Container */
 .container {
-    width: 90%;
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
