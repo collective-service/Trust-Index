@@ -1,1 +1,1 @@
-# Trust-Index
+# Trust Index - IFRC
