@@ -11,7 +11,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/39e5643f1a.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
-    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
 </head>
 
 <body>
@@ -27,20 +29,35 @@
         </div>
       </div>
     </div>
+
     <div class="container">
+
     <div class="heading-container">
       <h3 class="block-title">Countries</h2>
+        <div class="container-keyfigures">
+
+        <div id="keyfigures">
+          <div id="item-1"></div><small>Countries</small>
+        </div>
+        <div id="keyfigures">
+          <div id="item-2"></div><small>Countries</small>
+        </div>
+        <div id="keyfigures">
+          <div id="item-3"></div><small>Countries</small>
+        </div>
+        </div>
     </div>
     <div class="container-fluid" id="mainOfIframe">
-
         <div class="row">
             <div id="map">
-                <div id="legend"></div>
+                <div id="legend"><small>Status</small></div>
             </div>
         </div>
     </div>
     </div>
+
     <script type='text/javascript' src='script.js'></script>
+    <script type='text/javascript'src="barchart.js"></script>
 </body>
 
 </html>

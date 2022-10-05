@@ -1,3 +1,4 @@
+
 const geodataUrl = 'world.json';
 
 const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbooW7TmLrMZ8QNc4IlGq4mKaZQflviQ1WNPzeMHLemb8Nl5QdsDQnR5TnWHeNOzsFY479CV-tHbNY/pub?gid=0&single=true&output=csv&force=on";
@@ -223,7 +224,7 @@ function initiateMap() {
         .selectAll("legend-item")
         .data(legendEntries)
         .enter()
-        .append("circle").attr("r", 6)
+        .append("circle").attr("r", 5)
         .attr("cx", xcoord)
         .attr("cy", function(d, i) {
             if (i == 0) {
@@ -231,12 +232,14 @@ function initiateMap() {
             }
             return xcoord + i * 25;
         })
+
         .attr("fill", function(legend) { return getColor(legend); });
     legendSVG
         .select("g")
         .selectAll("text")
         .data(legendEntries).enter()
         .append("text")
+        .attr("x", xcoord * 2)
         .attr("x", xcoord * 2)
         .attr("y", function(d, i) {
             if (i == 0) {

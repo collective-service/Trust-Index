@@ -385,3 +385,9 @@ circle {
         font-size: 0.7em;
     }
 }
+.container-keyfigures {float:right; top:-20px;}
+#keyfigures{
+  display:inline-block; margin: auto; text-align: center; padding: 5px;font-size: 1.2em; font-weight: bold; height: 30px; width: 50px;}
+#item-1{background-color:#F39C12;color:#FFF;}
+#item-2{background-color:#E74C3C;color:#FFF;}
+#item-3{background-color:#7D3C98;color:#FFF;}
