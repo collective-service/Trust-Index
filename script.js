@@ -52,6 +52,7 @@ function figures(){
   const count = {'Test':0,'Pilot':0,'Active':0};
 
   for (const element of prioritiesData) {
+  // A modifier
     console.log(element);
     if (element['Stage']) {
       count[element] += 1;
