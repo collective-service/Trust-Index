@@ -312,30 +312,37 @@ circle {
 .survole .tag-Test {
     font-size: .9em;
     color:#FFF;
-    background:#A6B0C3;
+    background:#F5B041;
     padding-left:5px;
     padding-right:5px;
 }
 .survole .tag-Pilot {
     font-size: .9em;
     color:#FFF;
-    background:#546B89;
+    background:#E74C3C;
     padding-left:5px;
     padding-right:5px;
 }
 
 .survole .tag-Waiting {
     font-size: .9em;
-    color:#FFF;
-    background:#F2F2F2;
+    color:#2C3E50;
+    background:#FAD7A0;
     padding-left:5px;
     padding-right:5px;
 }
 
+.survole .tag-Pipeline {
+    font-size: .9em;
+    color:#FFF;
+    background:#BB8FCE;
+    padding-left:5px;
+    padding-right:5px;
+}
 .survole .tag-Active {
     font-size: .9em;
     color:#FFF;
-    background:#12284c;
+    background:#7D3C98;
     padding-left:5px;
     padding-right:5px;
 }
