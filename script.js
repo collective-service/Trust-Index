@@ -1,7 +1,7 @@
 const geodataUrl = 'world.json';
 
 const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbooW7TmLrMZ8QNc4IlGq4mKaZQflviQ1WNPzeMHLemb8Nl5QdsDQnR5TnWHeNOzsFY479CV-tHbNY/pub?gid=0&single=true&output=csv";
-const settingsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSD2zLHZWMu29R-iWNMb_dAVAmPAIttvOl-31PP6TyrtKKCi5-LfGNbru8M15_s-holGrQF8jXTNDZG/pub?gid=1974885344&single=true&output=csv";
+const settingsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbooW7TmLrMZ8QNc4IlGq4mKaZQflviQ1WNPzeMHLemb8Nl5QdsDQnR5TnWHeNOzsFY479CV-tHbNY/pub?output=csv";
 
 let geomData,
     prioritiesData,
@@ -31,6 +31,7 @@ $(document).ready(function() {
 
             prioritiesData = prioritiesData.filter(d => { return d.ISO3 != ''; });
             settings = data[2];
+            console.log(settings);
 
             //remove loader and show vis
             $('.loader').hide();
@@ -179,8 +180,8 @@ function initiateMap() {
           .attr("transform", function(d) {
               return "translate(" + [d.x, d.y] + ")";
           })
-          .attr("fill", '#f5333f')
-          // .attr("fill", function(d) { return getColor(d["Stage"]); })
+          // .attr("fill", '#f5333f')
+          .attr("fill", function(d) { return getColor(d["Stage"]); })
           .on("mousemove", function(d) {
               mousemove(d);
           })
