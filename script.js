@@ -37,13 +37,42 @@ $(document).ready(function() {
             $('.loader').hide();
             $('#mainOfIframe').css('opacity', 1);
 
-
+            figures();
             initiateMap();
         }); // then
     } // getData
 
     getData();
 });
+
+//count countriesISO3Arr
+
+function figures(){
+
+  const count = {'Test':0,'Pilot':0,'Active':0};
+
+  for (const element of prioritiesData) {
+    console.log(element);
+    if (element['Stage']) {
+      count[element] += 1;
+    } else {
+      count[element] = 1;
+    }
+  }
+var test = count['Test'];
+var pilot = count['Pilot'];
+var active = count['Active'];
+
+  d3.select("#item-1").append("span")
+      .text(test);
+
+  d3.select("#item-2").append("span")
+          .text(pilot);
+
+  d3.select("#item-3").append("span")
+          .text(active);
+
+}
 
 
 function findOneValue(arrTest, arr) {
