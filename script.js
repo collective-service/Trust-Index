@@ -1,7 +1,7 @@
 const geodataUrl = 'world.json';
 
-const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbooW7TmLrMZ8QNc4IlGq4mKaZQflviQ1WNPzeMHLemb8Nl5QdsDQnR5TnWHeNOzsFY479CV-tHbNY/pub?gid=0&single=true&output=csv";
-const settingsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbooW7TmLrMZ8QNc4IlGq4mKaZQflviQ1WNPzeMHLemb8Nl5QdsDQnR5TnWHeNOzsFY479CV-tHbNY/pub?output=csv";
+const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbooW7TmLrMZ8QNc4IlGq4mKaZQflviQ1WNPzeMHLemb8Nl5QdsDQnR5TnWHeNOzsFY479CV-tHbNY/pub?gid=0&single=true&output=csv&force=on";
+const settingsURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbooW7TmLrMZ8QNc4IlGq4mKaZQflviQ1WNPzeMHLemb8Nl5QdsDQnR5TnWHeNOzsFY479CV-tHbNY/pub?gid=1974885344&single=true&output=csv&force=on";
 
 let geomData,
     prioritiesData,
@@ -31,7 +31,6 @@ $(document).ready(function() {
 
             prioritiesData = prioritiesData.filter(d => { return d.ISO3 != ''; });
             settings = data[2];
-            console.log(settings);
 
             //remove loader and show vis
             $('.loader').hide();
@@ -163,31 +162,33 @@ function initiateMap() {
 
     // });
 
-  const circlesR = (isMobile) ? 2 : 4;
-  const circles = g.append("g")
-          .attr("class", "cercles")
-          .selectAll(".cercle")
-          .data(prioritiesData)
-          .enter()
-          .append("g")
-          .append("circle")
-          .attr("class", "cercle")
-          .attr("r", 5)
+    const circlesR = (isMobile) ? 2 : 4;
+    const circles = g.append("g")
+        .attr("class", "cercles")
+        .selectAll(".cercle")
+        .data(prioritiesData)
+        .enter()
+        .append("g")
+        .append("circle")
+        .attr("class", "cercle")
+        .attr("r", 5)
         //.attr("r", function(d) {
         //    const numIntervention = splitMultiValues(d["Intervention type"]).length;
         //    return circlesR * numIntervention;
         //})
-          .attr("transform", function(d) {
-              return "translate(" + [d.x, d.y] + ")";
-          })
-          // .attr("fill", '#f5333f')
-          .attr("fill", function(d) { return getColor(d["Stage"]); })
-          .on("mousemove", function(d) {
-              mousemove(d);
-          })
-          .on("mouseout", function() {
-              maptip.classed('hidden', true);
-          });
+        .attr("transform", function(d) {
+            return "translate(" + [d.x, d.y] + ")";
+        })
+        // .attr("fill", '#f5333f')
+        .attr("fill", function(d) {
+            return getColor(d["Stage"]);
+        })
+        .on("mousemove", function(d) {
+            mousemove(d);
+        })
+        .on("mouseout", function() {
+            maptip.classed('hidden', true);
+        });
 
     // .on("click", function(d) {
     //     generateEmergencyInfo(d);
@@ -207,9 +208,9 @@ function initiateMap() {
         zoom.scaleBy(mapsvg.transition().duration(500), 0.5);
     });
 
-    //var legendSVG = d3.select('#legend').append("svg")
-    //  .attr("widht", "100%")
-    //  .attr("height", "100%");
+    var legendSVG = d3.select('#legend').append("svg")
+        .attr("widht", "100%")
+        .attr("height", "100%");
 
     d3.select('#worldwide').style("bottom", height / 2 + "px");
 
@@ -270,11 +271,11 @@ function mousemove(d) {
         const stage = stages[index];
         html += '<button type="button" class="btn tag-' + stage + '">' + stage + '</button>';
     }
-  //  html += '<div class="subtitle">Agencies</div>';
-  //  for (let index = 0; index < agencies.length; index++) {
-  //      const agency = agencies[index];
-  //      html += '<button type="button" class="btn tag-agency">' + agency + '</button>';
-  //  }
+    //  html += '<div class="subtitle">Agencies</div>';
+    //  for (let index = 0; index < agencies.length; index++) {
+    //      const agency = agencies[index];
+    //      html += '<button type="button" class="btn tag-agency">' + agency + '</button>';
+    //  }
 
     html += '</div>'
     var mouse = d3.mouse(mapsvg.node()).map(function(d) { return parseInt(d); });
@@ -303,8 +304,12 @@ function getColor(type) {
 
     for (let index = 0; index < settings.length; index++) {
         const element = settings[index];
-        element["Stage"] == type ? color = element["Legend Color"] : null;
-        break;
+        if (element["Stage"] == type) {
+            color = element["Legend Color"];
+            break;
+        }
+        // element["Stage"] == type ? color = element["Legend Color"] : null;
+
     }
     return color;
 }
