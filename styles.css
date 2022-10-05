@@ -324,6 +324,13 @@ circle {
     padding-right:5px;
 }
 
+.survole .tag-Waiting {
+    font-size: .9em;
+    color:#FFF;
+    background:#F2F2F2;
+    padding-left:5px;
+    padding-right:5px;
+}
 
 .survole .tag-Active {
     font-size: .9em;
