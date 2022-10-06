@@ -286,28 +286,28 @@ function mousemove(d) {
     var html = '<div class="survole">';
     var countryName = "",
         stages,
-        agencies;
+        projects;
 
     if (d.hasOwnProperty('properties')) {
         const arr = prioritiesData.filter((e) => { return e.ISO3 == d.properties.ISO_A3; });
         countryName = arr[0]["Country"];
         stages = splitMultiValues(arr[0]["Stage"]);
-        agencies = splitMultiValues(arr[0]["Agencies"]);
+        projects = splitMultiValues(arr[0]["Project"]);
 
     } else {
         countryName = d["Country"];
         stages = splitMultiValues(d["Stage"]);
-        agencies = splitMultiValues(d["Agencies"]);
+        projects = splitMultiValues(d["Project"]);
     }
     html += '<h6>' + countryName + '</h6>';
     for (let index = 0; index < stages.length; index++) {
         const stage = stages[index];
         html += '<button type="button" class="btn tag-' + stage + '">' + stage + '</button>';
     }
-    //  html += '<div class="subtitle">Agencies</div>';
-    //  for (let index = 0; index < agencies.length; index++) {
-    //      const agency = agencies[index];
-    //      html += '<button type="button" class="btn tag-agency">' + agency + '</button>';
+    //  html += '<div class="subtitle">Project</div>';
+    //  for (let index = 0; index < projects.length; index++) {
+    //      const agency = projects[index];
+    //      html += '<button type="button" class="btn tag-Project">' + projects + '</button>';
     //  }
 
     html += '</div>'
