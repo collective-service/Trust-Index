@@ -51,15 +51,13 @@ function figures(){
 
   const count = {'Test':0,'Pilot':0,'Active':0};
 
-  for (const element of prioritiesData) {
+  for (element of prioritiesData) {
   // A modifier
     console.log(element);
-    if (element['Stage']) {
-      count[element] += 1;
-    } else {
-      count[element] = 1;
+    element['Stage']=="Test"?count["Test"]+=1:
+    element['Stage']=="Pilot"?count["Pilot"]+=1:
+    element['Stage']=="Active"?count["Active"]+=1:null;
     }
-  }
 var test = count['Test'];
 var pilot = count['Pilot'];
 var active = count['Active'];
