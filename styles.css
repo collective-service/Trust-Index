@@ -311,23 +311,23 @@ circle {
 }
 .survole .tag-Test {
     font-size: .9em;
+    color:#2C3E50;
+    background:#FAD7A0;
+    padding-left:5px;
+    padding-right:5px;
+}
+.survole .tag-Engagement {
+    font-size: .9em;
     color:#FFF;
     background:#F39C12;
     padding-left:5px;
     padding-right:5px;
 }
+
 .survole .tag-Pilot {
     font-size: .9em;
     color:#FFF;
     background:#E74C3C;
-    padding-left:5px;
-    padding-right:5px;
-}
-
-.survole .tag-Waiting {
-    font-size: .9em;
-    color:#2C3E50;
-    background:#FAD7A0;
     padding-left:5px;
     padding-right:5px;
 }
@@ -389,6 +389,7 @@ circle {
 .container-keyfigures {float:right; top:-20px;}
 #keyfigures{
   position:relative; z-index: 20;display:inline-block; margin: auto; text-align: center; padding: 5px;font-size: 1.2em; font-weight: bold; height: 30px; width: 50px;}
+#item-0{background-color:#FAD7A0;color:#FFF;}
 #item-1{background-color:#F39C12;color:#FFF;}
 #item-2{background-color:#E74C3C;color:#FFF;}
 #item-3{background-color:#7D3C98;color:#FFF;}

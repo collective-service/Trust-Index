@@ -49,21 +49,26 @@ $(document).ready(function() {
 
 function figures(){
 
-  const count = {'Test':0,'Pilot':0,'Active':0};
+  const count = {'Test':0,'Engagement':0,'Pilot':0,'Active':0};
 
   for (element of prioritiesData) {
   // A modifier
     console.log(element);
     element['Stage']=="Test"?count["Test"]+=1:
+    element['Stage']=="Engagement"?count["Engagement"]+=1:
     element['Stage']=="Pilot"?count["Pilot"]+=1:
     element['Stage']=="Active"?count["Active"]+=1:null;
     }
 var test = count['Test'];
+var engagement = count['Engagement'];
 var pilot = count['Pilot'];
 var active = count['Active'];
 
+  d3.select("#item-0").append("span")
+    .text(test);
+
   d3.select("#item-1").append("span")
-      .text(test);
+        .text(engagement);
 
   d3.select("#item-2").append("span")
           .text(pilot);
