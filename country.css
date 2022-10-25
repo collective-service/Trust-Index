@@ -1,0 +1,17 @@
+
+
+.svg_wrapper {
+    background: #F2F2F2;
+    border: 1px solid grey;
+    padding: 5px;
+}
+.label {
+    font-size: 0.73em;
+    font-weight: bold;
+    font-family: "Open Sans";
+    color:#CCC;
+}
+rect {
+  x:-15px;
+  y:-15px;
+}
