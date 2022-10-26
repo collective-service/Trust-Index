@@ -162,6 +162,7 @@ function initiateMap() {
         .data(geomData.features)
         .enter()
         .append("path")
+        .attr("width", "100%")
         .attr('d', path)
         .attr('id', function(d) {
             return d.properties.ISO_A3;
@@ -307,11 +308,11 @@ function mousemove(d) {
         const stage = stages[index];
         html += '<button type="button" class="btn tag-' + stage + '">' + stage + '</button>';
     }
-    //  html += '<div class="subtitle">Project</div>';
-    //  for (let index = 0; index < projects.length; index++) {
-    //      const agency = projects[index];
-    //      html += '<button type="button" class="btn tag-Project">' + projects + '</button>';
-    //  }
+    html += '<div class="subtitle">Project</div>';
+      for (let index = 0; index < projects.length; index++) {
+      const agency = projects[index];
+      html += '<button type="button" class="btn tag-Project">' + projects + '</button>';
+      }
 
     html += '</div>'
     var mouse = d3.mouse(mapsvg.node()).map(function(d) { return parseInt(d); });
@@ -336,7 +337,7 @@ function zoomed() {
 
 
 function getColor(type) {
-    var color = '#C3C3C3';
+    var color = '#FFF';
 
     for (let index = 0; index < settings.length; index++) {
         const element = settings[index];
@@ -344,7 +345,7 @@ function getColor(type) {
             color = element["Legend Color"];
             break;
         }
-        // element["Stage"] == type ? color = element["Legend Color"] : null;
+         element["Stage"] == type ? color = element["Legend Color"] : null;
 
     }
     return color;
