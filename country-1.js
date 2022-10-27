@@ -4,6 +4,7 @@ const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRoOP4pczUtchLr
 
 var countryName = "Zambia"
 var dataset = [60, 40, 100, 62, 66, 20, 44, 80, 32];
+var dataLabels = [];
 
 const colorArray = ["#C39BD3", "#9B59B6", "#5499C7", "#2471A3", "#2039ff", "#82E0AA", "#239B56", "#F4D03F", "#D35400"];
 const angleArray = [0, 40, 80, 120, 160, 200, 240, 280, 320];
@@ -13,14 +14,18 @@ var svgWidth = 400,
     barPadding = 5;
 var barWidth = (svgWidth / dataset.length);
 
-getScoresData();
 
-// 
+
+// la function get les data de gspreadsheet, le filtre sur le country donné en param et les aggrege sur 
+// colonne "Component" en faisant la somme de DataValue
+// Ne retourne rien mais modifie dataset en ajoutant les valeurs pour chaque component, donc dataset doit etre initialisé a []
 function getScoresData(country) {
     d3.csv(dataURL).then(function(data) {
-        console.log(data)
-            // filter the country
-            // data = data.filter(d => d["Country"] == country);
+        // filter the country
+        // data = data.filter(d => d["Country"] == country);
+
+        // cette partie split n'est pas necessaire, vire les % des donnees seulement, si c'est clean depuis les data, on peut
+        // s'en passer
         data.forEach(element => {
             var spt = element["DataValue"].split("%");
             element["DataValue"] = spt[0];
@@ -33,10 +38,17 @@ function getScoresData(country) {
 
         console.log(nestedData);
 
+        nestedData.forEach(component => {
+            dataLabels.push(component.key);
+            dataset.push(component.value);
+        });
+
     })
 
 } //getScoresData
 
+
+getScoresData();
 
 // value 80 degree line for center offset calculation
 
