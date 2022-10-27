@@ -162,6 +162,84 @@ border-bottom: 1px solid #91a0ac;
     width: 32px;
 }
 
+/* Table */
+.filters {
+width: 80%;
+text-align: center;
+color:#91a0ac;
+padding:10px;
+margin-right: auto;
+margin-left: auto;
+}
+
+.table {
+width: 100%;
+text-align: center;
+color:#91a0ac;
+padding:10px;
+margin-right: auto;
+margin-left: auto;
+margin-bottom:25px;
+}
+
+table.datatable th {
+  font-size: 0.73rem!important;
+  line-height: 1.5;
+  padding: 10px;
+  color:#000;
+  border-top: 0px solid #cbd3d8;
+  text-transform: uppercase;
+}
+table.datatable td {
+  font-size: 0.73rem!important;
+  line-height: 1.5;
+  padding: 10px;
+  border-bottom: 1px solid #cbd3d8;
+  text-transform: uppercase;
+}
+
+
+.fa-square-plus,
+.fa-minus-circle {
+  color: #cbd3d8;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.fa-external-link {
+  color: #204669;
+}
+
+
+  .btn {
+    outline: none;
+    display: inline;
+    padding: 5px 8px 5px 8px;
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: #fff;
+    margin-right:10px;
+  }
+
+  .tag-overall {
+    background: #CB4335;
+    border: solid 1px #CB4335;
+  }
+  .tag-competency {
+    background: #1A5276;
+    border: solid 1px #1A5276;
+  }
+  .tag-value {
+    background: #2471A3;
+    border: solid 1px ##2471A3;
+  }
+  .tag-other {
+    background: #204669; //#798ba5;
+    border: solid 1px #204669; //#798BA5;
+  }
+
+#searchBox {
+  min-width: 250px;
+}
 
 /* Spinner Circle Rotation */
 
@@ -276,6 +354,7 @@ border-bottom: 1px solid #91a0ac;
     left: 10px;
     bottom: 10px;
     width: 105px;
+    text-align: left;
     /* height: 95px; */
 }
 
