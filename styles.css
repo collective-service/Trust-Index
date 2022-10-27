@@ -48,7 +48,8 @@ h2 {
     overflow: hidden;
     height: 100%;
     z-index: 2;
-    background: #204669ba;
+    background: #12284c;
+    opacity: 0.7;
 }
 .banner__container .container {
 padding: 25px 0;
@@ -99,7 +100,7 @@ padding: 25px 0;
 .heading-container {
   position:absolute;
   left:0px;
-  top:-20px;
+  top:-70px;
 }
 
 .block-title {
