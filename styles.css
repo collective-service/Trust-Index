@@ -164,6 +164,29 @@ border-bottom: 1px solid #91a0ac;
 }
 
 /* Table */
+.tab-Inactive, .tab-Active {
+    color: #ffffff;
+    width: -webkit-fit-content;
+    width: -moz-fit-content;
+    width: fit-content;
+    display: inline;
+    margin-right: 10px;
+    line-height: 2.6rem;
+    padding:3px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.tab-Inactive {
+    background-color: #798BA5;}
+.tab-Active {
+    background-color: #12284c;
+}
+.tab-Active a, .tab-Inactive a {
+    color: #ffffff;
+}
+
+
 .filters {
 width: 80%;
 text-align: center;
