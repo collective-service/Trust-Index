@@ -1,5 +1,8 @@
 
 const svgns = "http://www.w3.org/2000/svg";
+
+const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRoOP4pczUtchLr3Oep7S5__9UnYhVczOc2J_yvkc0X3UHiLRKq-GSRFNw_krFflYwevyFV4oL-I9hT/pub?gid=0&single=true&output=csv";
+
 var countryName = "Zambia"
 var dataset = [60, 40, 100, 62, 66, 20, 44, 80, 32];
 
@@ -76,20 +79,39 @@ var svg = d3.select('#bar-js')
    .attr("height", svgHeight)
    .attr("class", "svg_wrapper");
 
-   var barChart = svg.selectAll("rect")
-      .data(dataset)
-      .enter()
-      .append("rect")
-      .attr("height", function(d) {
-          return d *1.8+20;
-      })
-      .attr("width", 20)
-      .attr("rx", 10)
-      .attr("ry", 10)
-      .attr("opacity", 0.7)
-      .attr("fill", function(d, i) { return colorArray[i]})
-      .attr("transform", function (d, i) {
+var g = svg.append("g")
+  .attr("transform", function (d) {
+      var translate = [svgWidth/2, svgHeight/2];
+      return "translate("+ translate +")";
+  });
+
+
+  var barChart = g.selectAll("rect")
+     .data(dataset)
+     .enter()
+     .append("rect")
+     .attr("height", function(d) {
+         return d *1.8+20;
+     })
+     .attr("width", 20)
+     .attr("rx", 10)
+     .attr("ry", 10)
+     .attr("opacity", 0.7)
+     .attr("fill", function(d, i) { return colorArray[i]})
+     .attr("transform", function (d, i) {
+         var translate = "+5, +5";
+         var rotate = angleArray[i];
+         return "rotate("+ rotate +") translate("+ translate +") ";
+     });
+
+    var circle = g
+      .append("circle")
+      .attr("fill", "white")
+      .attr("stroke", "grey")
+      .attr("cx", svgWidth/2)
+      .attr("cy", svgHeight/2)
+      .attr("r", "15")
+      .attr("transform", function (d) {
           var translate = [svgWidth/2, svgHeight/2];
-          var rotate = angleArray[i];
-          return "translate("+ translate +") rotate("+ rotate +")";
+          return "translate("+ translate +")";
       });
