@@ -109,8 +109,8 @@ const isMobile = $(window).width() < 767 ? true : false;
 const viewportWidth = window.innerWidth;
 let currentZoom = 1;
 
-const mapFillColor = '#12284c', //00acee F9F871 294780 6077B5 001e3f A6B0C3
-    mapInactive = '#12284c',
+const mapFillColor = '#204669', //00acee F9F871 294780 6077B5 001e3f A6B0C3
+    mapInactive = '#204669',
     mapActive = '#A6B0C3',
     hoverColor = '#546B89';
 
@@ -119,13 +119,13 @@ let countriesISO3Arr = [];
 
 function initiateMap() {
     width = document.getElementById("mainOfIframe").offsetWidth; //viewportWidth;
-    height = (isMobile) ? 400 : 500;
+    height = (isMobile) ? 350 : 450;
     var mapScale = (isMobile) ? width / 5.2 : width / 5;
     var mapCenter = (isMobile) ? [12, 25] : [10, 25];
     projection = d3.geoMercator()
         .center(mapCenter)
         .scale(mapScale)
-        .translate([width / 2.1, height / 1.9]);
+        .translate([width / 2.1, height / 2]);
 
     path = d3.geoPath().projection(projection);
     zoom = d3.zoom()
@@ -144,7 +144,7 @@ function initiateMap() {
         .attr("width", "100%")
         .attr("height", "100%")
         // .attr("fill", "#d9d9d9");
-        .attr("fill", "#FFF"); //#1b365e //294780 //1b365e //cdd4d9
+        .attr("fill", "#cbd3d8"); //#1b365e //294780 //1b365e //cdd4d9
     // .attr("fill-opacity", "0.5");
 
     d3.select('#title').style('right', width / 2 + 'px');
