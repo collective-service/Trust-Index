@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href='styles.css' rel='stylesheet' />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/39e5643f1a.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+
+
+</head>
+
+<body>
+    <div class="loader">
+        <div class="sp sp-circle"></div>
+        Loading data...
+    </div>
+    <div class="wrapper">
+    <div class="banner__container">
+      <div class="banner__overlay">
+        <div class="container">
+
+        </div>
+      </div>
+    </div>
+
+
+    <div id="heading">
+      <div class="heading-container">
+        <h2 class="banner_title block-title">Community Trust Index</h2>
+        </div>
+
+
+    </div>
+    <div class="page-content">
+    <div class="full-width" >
+    <div id="mainOfIframe" >
+      <div id="map">
+        <div class="zoom-controls">
+            <button id="zoom_in">+</button>
+            <button id="zoom_out">-</button>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="filters">
+        <span class="dtSearch">
+            <label id="searchBox"><input class="form-control" id="searchInput" type="text" placeholder="Search.."></label>
+        </span>
+    </div>
+
+    <div class="table">
+      <div class="tab-Active"><a href="/index-1.html">Index</a></div><div class="tab-Inactive"><a href="/country-1.html">Country</a></div>
+      <table id="datatable" class="datatable" style="width:100%">
+          <thead>
+            <tr>
+                <th></th>
+                <th width="20%">Country</th>
+                <th width="10%">Overall</th>
+                <th>Dimensions</th>
+                <th>Date</th>
+                <th>Size</th>
+                <th>Report</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><i class="fa-solid fa-square-plus"></i></td>
+                <td>Zambia</td>
+                <td><div class="btn tag-overall">73</div></td>
+                <td><div class="btn tag-competency">65</div><div class="btn tag-value">80</div></td>
+                <td>2022</td>
+                <td>< 1,000</td>
+                <td><i class="fa-solid fa-arrow-up-right-from-square"></i></td>
+            </tr>
+            <tr>
+                <td><i class="fa-solid fa-square-plus"></i></td>
+                <td>Azerbaijan</td>
+                <td><div class="btn tag-overall">76</div></td>
+                <td><div class="btn tag-competency">71</div><div class="btn tag-value">81</div></td>
+                <td>2022</td>
+                <td>< 1,500</td>
+                <td><i class="fa-solid fa-arrow-up-right-from-square"></i></td>
+            </tr>
+            <tr>
+                <td><i class="fa-solid fa-square-plus"></i></td>
+                <td>Argentina</td>
+                <td><div class="btn tag-overall">67</div></td>
+                <td><div class="btn tag-competency">70</div><div class="btn tag-value">64</div></td>
+                <td>2022</td>
+                <td>> 2,500</td>
+                <td><i class="fa-solid fa-arrow-up-right-from-square"></i></td>
+            </tr>
+            <tr>
+                <td><i class="fa-solid fa-square-plus"></i></td>
+                <td>Malaysia</td>
+                <td><div class="btn tag-overall">83</div></td>
+                <td><div class="btn tag-competency">87</div><div class="btn tag-value">80</div></td>
+                <td>2022</td>
+                <td>< 1,000</td>
+                <td><i class="fa-solid fa-arrow-up-right-from-square"></i></td>
+            </tr>
+          </tbody>
+      </table>
+      <small>Do not consider data - for testing only</small>
+    </div>
+    </div>
+    </div>
+
+    <script type='text/javascript' src='script-2.js'></script>
+</body>
+
+</html>
