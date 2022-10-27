@@ -147,8 +147,8 @@ border-bottom: 1px solid #91a0ac;
 }
 
 #mainOfIframe {
-  width: 80%;
-  max-width: 1080px;
+  width: 100%;
+  max-width: 1280px;
   opacity: 0;
   margin-left: auto;
   margin-right: auto;
@@ -244,7 +244,7 @@ border-bottom: 1px solid #91a0ac;
 .zoom-controls {
     position: absolute;
     left: 25px;
-    top: 25px;
+    top: 40px;
     display: grid;
     grid-gap: 5px;
 }

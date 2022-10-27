@@ -120,8 +120,8 @@ let countriesISO3Arr = [];
 function initiateMap() {
     width = document.getElementById("mainOfIframe").offsetWidth; //viewportWidth;
     height = (isMobile) ? 350 : 450;
-    var mapScale = (isMobile) ? width / 5.2 : width / 5.2;
-    var mapCenter = (isMobile) ? [12, 25] : [10, 25];
+    var mapScale = (isMobile) ? width / 5.5 : width / 5.5;
+    var mapCenter = (isMobile) ? [12, 25] : [12, 25];
     projection = d3.geoMercator()
         .center(mapCenter)
         .scale(mapScale)
