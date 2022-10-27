@@ -109,8 +109,8 @@ const isMobile = $(window).width() < 767 ? true : false;
 const viewportWidth = window.innerWidth;
 let currentZoom = 1;
 
-const mapFillColor = '#204669', //00acee F9F871 294780 6077B5 001e3f A6B0C3
-    mapInactive = '#204669',
+const mapFillColor = '#1E3559', //00acee F9F871 294780 6077B5 001e3f A6B0C3
+    mapInactive = '#1E3559',
     mapActive = '#A6B0C3',
     hoverColor = '#546B89';
 
@@ -203,7 +203,7 @@ function initiateMap() {
         .append("g")
         .append("circle")
         .attr("class", "cercle")
-        .attr("r", 8)
+        .attr("r", 7)
         //.attr("r", function(d) {
         //    const numIntervention = splitMultiValues(d["Intervention type"]).length;
         //    return circlesR * numIntervention;
@@ -212,9 +212,9 @@ function initiateMap() {
             return "translate(" + [d.x, d.y] + ")";
         })
         // .attr("fill", '#f5333f')
-        .attr("fill", "#7FB3D5ca")
-        .attr("opacity", "0.8")
-        .attr("stroke", "#FFF")
+        .attr("fill", "#CB4335aa")
+        .attr("opacity", "0.85")
+        .attr("stroke", "#CB4335")
         .on("mousemove", function(d) {
             mousemove(d);
         })
