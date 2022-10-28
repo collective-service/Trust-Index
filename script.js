@@ -203,7 +203,7 @@ function initiateMap() {
         .append("g")
         .append("circle")
         .attr("class", "cercle")
-        .attr("r", 5)
+        .attr("r", 6)
         //.attr("r", function(d) {
         //    const numIntervention = splitMultiValues(d["Intervention type"]).length;
         //    return circlesR * numIntervention;
@@ -215,6 +215,8 @@ function initiateMap() {
         .attr("fill", function(d) {
             return getColor(d["Stage"]);
         })
+
+        .attr("opacity", "0.9")
         .on("mousemove", function(d) {
             mousemove(d);
         })
@@ -255,7 +257,7 @@ function initiateMap() {
         .selectAll("legend-item")
         .data(legendEntries)
         .enter()
-        .append("circle").attr("r", 5)
+        .append("circle").attr("r", 6)
         .attr("cx", xcoord)
         .attr("cy", function(d, i) {
             if (i == 0) {
