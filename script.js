@@ -109,8 +109,8 @@ const isMobile = $(window).width() < 767 ? true : false;
 const viewportWidth = window.innerWidth;
 let currentZoom = 1;
 
-const mapFillColor = '#204669', //00acee F9F871 294780 6077B5 001e3f A6B0C3
-    mapInactive = '#204669',
+const mapFillColor = '#1E3559', //00acee F9F871 294780 6077B5 001e3f A6B0C3
+    mapInactive = '#1E3559',
     mapActive = '#A6B0C3',
     hoverColor = '#546B89';
 
@@ -334,7 +334,7 @@ function zoomed() {
 
 
 function getColor(type) {
-    var color = '#FFF';
+    var color = '#cbd3d8';
 
     for (let index = 0; index < settings.length; index++) {
         const element = settings[index];

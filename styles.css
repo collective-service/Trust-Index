@@ -455,13 +455,7 @@ circle {
     /* stroke: #D90368; */
 }
 
-.survole .btn {
-    font-size: .8em;
-    font-weight: 400;
-    text-transform: uppercase;
-    padding: 0;
-    margin-right: 5px;
-}
+
 
 .survole h6 {
     font-size: 1.3em;
@@ -472,42 +466,37 @@ circle {
     font-size: 0.87em;
     margin-top:5px;
 }
-.survole .tag-Test {
+.survole .btn{
     font-size: .9em;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding:0px;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.tag-Test {
     color:#2C3E50;
     background:#FAD7A0;
-    padding-left:5px;
-    padding-right:5px;
 }
-.survole .tag-Engagement {
-    font-size: .9em;
+.tag-Engagement {
     color:#FFF;
     background:#F39C12;
-    padding-left:5px;
-    padding-right:5px;
 }
 
-.survole .tag-Pilot {
-    font-size: .9em;
+.tag-Pilot {
     color:#FFF;
     background:#BB8FCE;
-    padding-left:5px;
-    padding-right:5px;
 }
 
-.survole .tag-Active {
-    font-size: .9em;
+.tag-Active {
     color:#FFF;
     background:#7D3C98;
-    padding-left:5px;
-    padding-right:5px;
 }
 
-.survole .tag-Project {
+.tag-Project {
     font-size: .9em;
     background:#798BA5;
-    padding-left:5px;
-    padding-right:5px;
 }
 .survole .tag-title {
     font-weight: bold;
