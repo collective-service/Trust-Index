@@ -125,7 +125,7 @@ function initiateMap() {
     projection = d3.geoMercator()
         .center(mapCenter)
         .scale(mapScale)
-        .translate([width / 2.1, height / 2]);
+        .translate([width / 2.1, height / 2.1]);
 
     path = d3.geoPath().projection(projection);
     zoom = d3.zoom()
