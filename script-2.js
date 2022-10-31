@@ -347,3 +347,9 @@ function getColor(type) {
     }
     return color;
 }
+
+
+$(document).ready(function() {
+  $(".js-example-placeholder-single").select2({
+  });
+});

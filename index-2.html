@@ -12,6 +12,8 @@
     <script src="https://kit.fontawesome.com/39e5643f1a.js"></script>
     <script src="https://d3js.org/topojson.v1.min.js"></script>
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js"></script>
 
 
 </head>
@@ -25,7 +27,13 @@
     <div class="banner__container">
       <div class="banner__overlay">
         <div class="container">
-
+          <div class="selector">
+            <select class="js-example-placeholder-single" name="state">
+            <option value="" disabled selected hidden>Choose a country</option>
+              <option value="ZMB">Zambia</option>
+              <option value="AZE">Azerbaijan</option>
+            </select>
+          </div>
         </div>
       </div>
     </div>

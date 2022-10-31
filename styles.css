@@ -55,6 +55,26 @@ h2 {
 padding: 25px 0;
 }
 
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color: #f2f2f2;
+  color: #cbd3d8;
+  padding: 5px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #3e8e41;
+}
+
+
+
+
 /* Container */
 .container {
     width: 80%;
@@ -77,13 +97,15 @@ padding: 25px 0;
 .banner__description {
     font-family: "Open Sans","Noto Kufi Arabic","Arial",sans-serif;
     margin: 10px auto 20px;
-    font-size: 0.8889rem;
+    font-size: 1.1em;
     font-stretch: normal;
     font-style: normal;
     line-height: 1.38;
     letter-spacing: normal;
     color: #ffffff;
 }
+
+.selector {position:absolute;right:20px; top:48px;}
 
 /* Page Header */
 

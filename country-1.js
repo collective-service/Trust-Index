@@ -16,7 +16,7 @@ var barWidth = (svgWidth / dataset.length);
 
 
 
-// la function get les data de gspreadsheet, le filtre sur le country donné en param et les aggrege sur 
+// la function get les data de gspreadsheet, le filtre sur le country donné en param et les aggrège sur
 // colonne "Component" en faisant la somme de DataValue
 // Ne retourne rien mais modifie dataset en ajoutant les valeurs pour chaque component, donc dataset doit etre initialisé a []
 function getScoresData(country) {
@@ -56,57 +56,6 @@ var offset = Math.cos(10) * 90;
 var center = svgWidth / 2
 var average = dataset.reduce((a, b) => a + b, 0) / dataset.length;
 
-
-var radial = document.getElementById('bar1-js');
-radial.setAttribute("width", svgWidth);
-radial.setAttribute("height", svgHeight);
-radial.setAttribute("class", "svg_wrapper");
-
-
-for (var i = 0; i < dataset.length; i++) {
-
-    var rect = document.createElementNS(svgns, 'rect');
-
-    gsap.set(rect, {
-        x: svgWidth / 2 + offset,
-        y: svgHeight / 2 + 5,
-        width: 20,
-        height: dataset[i % dataset.length] * 1.8 + 20,
-        fill: colorArray[i % colorArray.length],
-        rx: 10,
-        ry: 10,
-        opacity: 0.7,
-        svgOrigin: '-5 -5',
-        xPercent: 400,
-        yPercent: 0,
-        rotate: angleArray[i % angleArray.length],
-
-    });
-
-
-    radial.appendChild(rect);
-}
-
-
-// Overall Value
-
-var circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-circle.setAttribute("fill", "white");
-circle.setAttribute("stroke", "grey");
-circle.setAttribute("cx", svgWidth / 2);
-circle.setAttribute("cy", svgHeight / 2);
-circle.setAttribute("r", "15");
-radial.appendChild(circle);
-
-
-var overall = document.createElementNS("http://www.w3.org/2000/svg", "text");
-var average = document.createTextNode(average);
-overall.setAttribute("x", svgWidth / 2 - 7);
-overall.setAttribute("y", svgHeight / 2 + 5);
-overall.setAttribute("class", "label");
-
-overall.appendChild(average);
-radial.appendChild(overall);
 
 
 // Chart 2
@@ -153,3 +102,10 @@ var circle = g
         var translate = [svgWidth / 2, svgHeight / 2];
         return "translate(" + translate + ")";
     });
+
+
+var average = g
+    .append("average")
+    attr("x", svgWidth / 2 - 7);
+    attr("y", svgHeight / 2 + 5);
+    attr("class", "label");
