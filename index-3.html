@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <!-- CSS only -->
+    <link rel="icon" href="https://www.rcce-collective.net/wp-content/uploads/2021/04/android-chrome-192x192-1.png" sizes="192x192" />
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.11/c3.min.css"/>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
+    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+    crossorigin="" />
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/jquery.dataTables.min.css">
+    <!-- Multi select -->
+    <link href="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/39e5643f1a.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://d3js.org/d3.v5.js"></script>
+    <script src="https://d3js.org/topojson.v1.min.js"></script>
+    <script src="https://d3-legend.susielu.com/d3-legend.min.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/c3/0.7.11/c3.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+    <!-- MDB -->
+    <script src="https://unpkg.com/multiple-select@1.5.2/dist/multiple-select.min.js"></script>
+    <link href='css/base.css' rel='stylesheet' />
+    <link href='css/styles3.css' rel='stylesheet' />
+    <title>RCCE CFM</title>
+</head>
+<body>
+    <div class="loader">
+        <div class="sp sp-circle"></div>
+        Loading data...
+    </div>
+    <div class="wrapper">
+      <div class="banner__container">
+        <div class="banner__overlay">
+          <div class="container">
+            <div class="selector">
+              <select class="js-example-placeholder-single" name="state">
+              <option value="" disabled selected hidden>Choose a country</option>
+                <option value="ZMB">Zambia</option>
+                <option value="AZE">Azerbaijan</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div id="heading">
+        <div class="heading-container">
+          <h2 class="banner_title block-title">Community Trust Index</h2>
+          </div>
+          <div class="container-keyfigures">
+
+
+          <div id="keyfigures">
+            <div class="desc">Test</div>
+            <div class="num" id="totalCfms"></div>
+          </div>
+          <div id="keyfigures">
+            <div class="desc">Engagement</div>
+            <div class="num" id="countriesCFM"></div>
+          </div>
+          <div id="keyfigures">
+            <div class="desc">Pilot</div>
+            <div class="num" id="orgsCFM"></div>
+          </div>
+        </div>
+
+
+      </div>
+      <div class="page-content">
+      <div class="full-width" >
+        <div id="map">
+          <div class="zoom-controls">
+              <button id="zoom_in">+</button>
+              <button id="zoom_out">-</button>
+          </div>
+        </div>
+      <div id="mainOfIframe" >
+
+      </div>
+      </div>
+      <div class="filters">
+        <div class="row">
+            <div class="col-sm-6">
+                <select name="orgSelect" id="orgSelect"></select>
+            </div>
+            <div class="col-sm-6">
+                <select name="regionSelect" id="regionSelect"></select>
+            </div>
+        </div>
+        <div class="purpose">
+            <!-- <span>Community Feedback Mechanism Purpose <label>(Select Country)</label></span> -->
+            <span class="focusFilter">
+                <label><strong>Filter by functions: </strong></label>
+                <label><button type="button" class="btn btn-secondary filter" id="perception" value="Perception">Perception</button></label>
+                <label><button type="button" class="btn btn-secondary filter" id="rumors" value="Rumors">Rumors</button></label>
+                <label><button type="button" class="btn btn-secondary filter" id="questions" value="Questions">Questions</button></label>
+                <label><button type="button" class="btn btn-secondary filter" id="others" value="purpose-other">Other</button></label>
+            </span>
+            <span class="emergencyFilter">
+                <label><strong>Filter by emergency: </strong></label>
+                <label><button type="button" class="btn btn-secondary filter" id="covid" value="COVID-19">COVID-19</button></label>
+                <label><button type="button" class="btn btn-secondary filter" id="ebola" value="Ebola">Ebola</button></label>
+                <label><button type="button" class="btn btn-secondary filter" id="otherOutbreak" value="emergency-other">Other</button></label>
+            </span>
+            <button type="button" class="btn btn-tertiary" id="reset-table">Reset filters</button>
+        </div>
+      </div>
+
+      <div class="table">
+
+        <table id="datatable" class="stripe datatable" style="width:100%">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Country</th>
+                <th>Organization</th>
+                <th>Functions</th>
+                <th>Focus</th>
+                <!-- <th>Suggestions</th>
+                <th>Rumors</th>
+                <th>Questions</th>
+                <th>Complaints</th>
+                <th>Accountability</th> -->
+                <th>Link</th>
+            </tr>
+            </thead>
+        </table>
+        <small>Do not consider data - for testing only</small>
+      </div>
+      </div>
+      </div>
+
+    <script type='text/javascript' src='js/script-3.js'></script>
+</body>
+</html>

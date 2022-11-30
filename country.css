@@ -15,3 +15,18 @@ rect {
   x:-15px;
   y:-15px;
 }
+
+
+svg {
+           overflow: none;
+           padding: 10px;
+           float: left;
+           width: 350px;
+           height: 350px;
+       }
+text {
+            text-anchor: left;
+            font-size: 12px;
+            font-family: sans-serif,Helvetica,Arial;
+            font-weight: bold;
+        }
