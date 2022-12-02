@@ -1,4 +1,3 @@
-
 const geodataUrl = 'world.json';
 
 const dataURL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQbooW7TmLrMZ8QNc4IlGq4mKaZQflviQ1WNPzeMHLemb8Nl5QdsDQnR5TnWHeNOzsFY479CV-tHbNY/pub?gid=0&single=true&output=csv&force=on";
@@ -8,7 +7,6 @@ let geomData,
     prioritiesData,
     settings;
 let legendEntries = [];
-
 
 
 $(document).ready(function() {
@@ -32,7 +30,6 @@ $(document).ready(function() {
 
             prioritiesData = prioritiesData.filter(d => { return d.ISO3 != ''; });
             settings = data[2];
-
             //remove loader and show vis
             $('.loader').hide();
             $('#mainOfIframe').css('opacity', 1);
@@ -47,32 +44,32 @@ $(document).ready(function() {
 
 //count countriesISO3Arr
 
-function figures(){
+function figures() {
 
-  const count = {'Test':0,'Engagement':0,'Pilot':0,'Active':0};
+    const count = { 'Test': 0, 'Engagement': 0, 'Pilot': 0, 'Active': 0 };
 
-  for (element of prioritiesData) {
-    element['Stage']=="Test"?count["Test"]+=1:
-    element['Stage']=="Engagement"?count["Engagement"]+=1:
-    element['Stage']=="Pilot"?count["Pilot"]+=1:
-    element['Stage']=="Active"?count["Active"]+=1:null;
+    for (element of prioritiesData) {
+        element['Stage'] == "Test" ? count["Test"] += 1 :
+            element['Stage'] == "Engagement" ? count["Engagement"] += 1 :
+            element['Stage'] == "Pilot" ? count["Pilot"] += 1 :
+            element['Stage'] == "Active" ? count["Active"] += 1 : null;
     }
-var test = count['Test'];
-var engagement = count['Engagement'];
-var pilot = count['Pilot'];
-var active = count['Active'];
+    var test = count['Test'];
+    var engagement = count['Engagement'];
+    var pilot = count['Pilot'];
+    var active = count['Active'];
 
-  d3.select("#item-0").append("span")
-    .text(test);
+    d3.select("#item-0").append("span")
+        .text(test);
 
-  d3.select("#item-1").append("span")
+    d3.select("#item-1").append("span")
         .text(engagement);
 
-  d3.select("#item-2").append("span")
-          .text(pilot);
+    d3.select("#item-2").append("span")
+        .text(pilot);
 
-  d3.select("#item-3").append("span")
-          .text(active);
+    d3.select("#item-3").append("span")
+        .text(active);
 
 }
 
@@ -103,6 +100,7 @@ function updateLatLon(iso3, x, y) {
     }
 
 }
+
 
 const isMobile = $(window).width() < 767 ? true : false;
 
@@ -264,7 +262,7 @@ function initiateMap() {
             return xcoord + i * 25;
         })
 
-        .attr("fill", function(legend) { return getColor(legend); });
+    .attr("fill", function(legend) { return getColor(legend); });
     legendSVG
         .select("g")
         .selectAll("text")
@@ -306,10 +304,10 @@ function mousemove(d) {
         html += '<button type="button" class="btn tag-' + stage + '">' + stage + '</button>';
     }
     html += '<div class="subtitle">Project</div>';
-      for (let index = 0; index < projects.length; index++) {
-      const agency = projects[index];
-      html += '<button type="button" class="btn tag-Project">' + projects + '</button>';
-      }
+    for (let index = 0; index < projects.length; index++) {
+        const agency = projects[index];
+        html += '<button type="button" class="btn tag-Project">' + projects + '</button>';
+    }
 
     html += '</div>'
     var mouse = d3.mouse(mapsvg.node()).map(function(d) { return parseInt(d); });
@@ -342,7 +340,7 @@ function getColor(type) {
             color = element["Legend Color"];
             break;
         }
-         element["Stage"] == type ? color = element["Legend Color"] : null;
+        element["Stage"] == type ? color = element["Legend Color"] : null;
 
     }
     return color;
@@ -350,6 +348,5 @@ function getColor(type) {
 
 
 $(document).ready(function() {
-  $(".js-example-placeholder-single").select2({
-  });
+    $(".js-example-placeholder-single").select2({});
 });
